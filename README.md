@@ -1,6 +1,8 @@
 # DISH
 
-A project for determining viable recipes with predetermined ingrediants
+A project for determining viable recipes with predetermined ingrediants from the Edamam Recipe Search API
+
+[API Signup and Information](https://www.edamam.com/)
 
 ## Basic Set-up
 
