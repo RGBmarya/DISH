@@ -2,6 +2,9 @@
 __pycache__
 key.txt
 Include
-Lib
+include
 Scripts
 pyvenv.cfg
+lib*
+Lib
+bin
