@@ -8,3 +8,4 @@ pyvenv.cfg
 lib*
 Lib
 bin
+share
