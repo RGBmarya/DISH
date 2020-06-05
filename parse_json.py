@@ -4,7 +4,7 @@ from requests import Response
 from typing import List, Union, Dict
 
 
-def extract_recipies(r: Response) -> Dict[str, Union[str, List[Any], int]]:
+def extract_recipes(r: Response) -> Dict[str, Union[str, List[Any], int]]:
     """Provided a response object, separate the individual elements of the json for display
 
     Arguments:
@@ -13,13 +13,18 @@ def extract_recipies(r: Response) -> Dict[str, Union[str, List[Any], int]]:
     Returns:
         Dict[str, Union[str, List[Any], int]] -- The elements stripped from the json body 
     """
-    pass
+    js = r.json()
+    cookbook = []
+    for key, value in js["hits"].items():
+        if key == "recipe":
+            cookbook.append(value)
+    return cookbook
 
 
-def display_recipies(recipie: Dict[str, Union[str, List[Any], int]]) -> None:
+def display_recipes(recipe: Dict[str, Union[str, List[Any], int]]) -> None:
     """Print the necessary elements from the parsed json request to the user
 
     Arguments:
-        recipie {Dict[str, Union[str, List[Any], int]]} -- The parsed json from the API request
+        recipe {Dict[str, Union[str, List[Any], int]]} -- The parsed json from the API request
     """
-    pass
+    print(recipe)
