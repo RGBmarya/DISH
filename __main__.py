@@ -1,6 +1,8 @@
 import sys, getopt
 from typing import List
 
+API_URL = "https://api.edamam.com/search"
+
 SHORT_ARGS = 'i:f:t:d:h:'
 LONG_ARGS = ['help', 'ingredients=', 'from=',
              'to=', 'diet=', 'health=', 'cuisine-type=',
