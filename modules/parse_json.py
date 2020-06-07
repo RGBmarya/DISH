@@ -15,7 +15,7 @@ def extract_recipes(r: Response) -> List[Dict[str, Union[str, List[Any], int]]]:
     """
     js = r.json()
     cookbook = []
-    for key, value in js["hits"].items():
+    for key, value in js["hits"].items(): # FIXME: How can we pull recipes out from the js?
         if key == "recipe":
             cookbook.append(value)
     return cookbook
