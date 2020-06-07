@@ -1,10 +1,10 @@
 import requests
 import typing
 from requests import Response
-from typing import List, Union, Dict
+from typing import List, Union, Dict, Any
 
 
-def extract_recipes(r: Response) -> Dict[str, Union[str, List[Any], int]]:
+def extract_recipes(r: Response) -> List[Dict[str, Union[str, List[Any], int]]]:
     """Provided a response object, separate the individual elements of the json for display
 
     Arguments:
