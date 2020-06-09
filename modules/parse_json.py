@@ -2,7 +2,7 @@ import requests
 import typing
 from requests import Response
 from typing import List, Union, Dict, Any
-
+import json
 
 def extract_recipes(r: Response) -> List[Dict[str, Union[str, List[Any], int]]]:
     """Provided a response object, separate the individual elements of the json for display
@@ -15,9 +15,9 @@ def extract_recipes(r: Response) -> List[Dict[str, Union[str, List[Any], int]]]:
     """
     js = r.json()
     cookbook = []
-    for key, value in js["hits"].items(): # FIXME: How can we pull recipes out from the js?
+    for key, value in js["hits"][0].items(): 
         if key == "recipe":
-            cookbook.append(value)
+           cookbook.append(value)
     return cookbook
 
 
@@ -28,3 +28,4 @@ def display_recipes(recipe: Dict[str, Union[str, List[Any], int]]) -> None:
         recipe {Dict[str, Union[str, List[Any], int]]} -- The parsed json from the API request
     """
     print(recipe)
+
