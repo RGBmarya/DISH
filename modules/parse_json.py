@@ -17,7 +17,6 @@ def extract_recipes(r: Response) -> List[Dict[str, Union[str, List[Any], int]]]:
     for group in js["hits"]:
         value = group["recipe"]
         cookbook.append(value)
-        print(cookbook)
     return cookbook
 
 def display_recipes(recipe: Dict[str, Union[str, List[Any], int]]) -> None:
@@ -29,4 +28,4 @@ def display_recipes(recipe: Dict[str, Union[str, List[Any], int]]) -> None:
     label = recipe["label"]
     image = recipe["image"]
     ingredients = recipe["ingredientLines"]
-    print("\n Label: %s \n Image: %s \n Ingredients: %s" % (label, image, ingredients))
+    print(f'\nLabel: {label}\nImage: {image}\nIngredients: {ingredients}')
