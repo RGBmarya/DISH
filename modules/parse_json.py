@@ -2,7 +2,6 @@ import requests
 import typing
 from requests import Response
 from typing import List, Union, Dict, Any
-import json
 
 def extract_recipes(r: Response) -> List[Dict[str, Union[str, List[Any], int]]]:
     """Provided a response object, separate the individual elements of the json for display
@@ -15,11 +14,11 @@ def extract_recipes(r: Response) -> List[Dict[str, Union[str, List[Any], int]]]:
     """
     js = r.json()
     cookbook = []
-    for key, value in js["hits"][0].items(): 
-        if key == "recipe":
-           cookbook.append(value)
+    for group in js["hits"]:
+        value = group["recipe"]
+        cookbook.append(value)
+        print(cookbook)
     return cookbook
-
 
 def display_recipes(recipe: Dict[str, Union[str, List[Any], int]]) -> None:
     """Print the necessary elements from the parsed json request to the user
@@ -27,5 +26,7 @@ def display_recipes(recipe: Dict[str, Union[str, List[Any], int]]) -> None:
     Arguments:
         recipe {Dict[str, Union[str, List[Any], int]]} -- The parsed json from the API request
     """
-    print(recipe)
-
+    label = recipe["label"]
+    image = recipe["image"]
+    ingredients = recipe["ingredientLines"]
+    print("\n Label: %s \n Image: %s \n Ingredients: %s" % (label, image, ingredients))
