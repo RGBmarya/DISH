@@ -19,7 +19,7 @@ API_URL = "https://api.edamam.com/search"
              "high-protein", "low-fat", "low-carb"')
 @click.option('--health', help='Health label: choose from "vegan", \
              "vegetarian", "sugar-conscious", "peanut-free", \
-             "tree-nut-free”, "fat-free", "alcohol-free"')
+             "tree-nut-free", "fat-free", "alcohol-free"')
 @click.option('--meal-type', '-m', help='The type of meal a recipe belongs \
               to: choose from "breakfast", "lunch", "dinner", "snack", \
               "teatime"')
