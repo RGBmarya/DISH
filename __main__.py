@@ -15,14 +15,14 @@ API_URL = "https://api.edamam.com/search"
 @click.option('-f', help='Begin listing recipes at this index', default=-1)
 @click.option('--to', '-t',
               help='Maximum number of recipes to display', default=-1)
-@click.option('--diet', '-d', help='Diet label: choose from “balanced”, \
-             “high-protein”, “low-fat”, “low-carb”')
-@click.option('--health', help='Health label: choose from “vegan”, \
-             “vegetarian”, “sugar-conscious”, “peanut-free”, \
-             “tree-nut-free”, “fat-free”, “alcohol-free”')
+@click.option('--diet', '-d', help='Diet label: choose from "balanced", \
+             "high-protein", "low-fat", "low-carb"')
+@click.option('--health', help='Health label: choose from "vegan", \
+             "vegetarian", "sugar-conscious", "peanut-free", \
+             "tree-nut-free”, "fat-free", "alcohol-free"')
 @click.option('--meal-type', '-m', help='The type of meal a recipe belongs \
-              to: choose from “breakfast”, “lunch”, “dinner”, “snack”, \
-              “teatime”')
+              to: choose from "breakfast", "lunch", "dinner", "snack", \
+              "teatime"')
 def go(ingredients, f, to, diet, health, meal_type):
     """The main runner of the DISH program
 
