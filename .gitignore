@@ -10,3 +10,4 @@ Lib
 bin
 share
 .vscode
+.env

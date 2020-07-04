@@ -1,9 +1,11 @@
 import sys
 import click
+import os
 import modules.parse_json as pj
 import modules.parse_key_file as pk
 import modules.send_request as sr
 import modules.query_builder as qb
+from dotenv import load_dotenv 
 
 API_URL = "https://api.edamam.com/search"
 
@@ -11,7 +13,7 @@ API_URL = "https://api.edamam.com/search"
 @click.command()
 @click.option('--ingredients', '-i',
               help='Ingredients you have available to create your dish',
-              required=True)
+              required=False)
 @click.option('-f', help='Begin listing recipes at this index', default=-1)
 @click.option('--to', '-t',
               help='Maximum number of recipes to display', default=-1)
@@ -30,6 +32,9 @@ def go(ingredients, f, to, diet, health, meal_type):
         args (List[str]): the list of arguments
                             passed from the command line
     """
+    if ingredients is None:
+        load_dotenv()
+        ingredients = os.getenv("INGREDIENTS")
 
     id, key = pk.extract_auth_keys("key.txt")
     params = qb.build_query_params(
