@@ -14,7 +14,7 @@ API_URL = "https://api.edamam.com/search"
 @click.option('--ingredients', '-i',
               help='Ingredients you have available to create your dish')
 @click.option('-f', help='Begin listing recipes at this index', default=-1)
-@click.option('--to', '-t',
+@click.option('--to',
               help='Maximum number of recipes to display', default=-1)
 @click.option('--diet', '-d', help='Diet label: choose from "balanced", \
              "high-protein", "low-fat", "low-carb"')
@@ -24,7 +24,12 @@ API_URL = "https://api.edamam.com/search"
 @click.option('--meal-type', '-m', help='The type of meal a recipe belongs \
               to: choose from "breakfast", "lunch", "dinner", "snack", \
               "teatime"')
-def go(ingredients, f, to, diet, health, meal_type):
+@click.option('--calories', '-c', help='Calorie range in kcal. Format as \
+"minimum calories-maximum calories"')
+@click.option('--time', '-t', help='Time range for the total cooking \
+and prep time for a recipe in minutes. Format as "minimum time-\
+maximum time"')
+def go(ingredients, f, to, diet, health, meal_type, calories, time):
     """The main runner of the DISH program
 
     Args:
@@ -41,7 +46,9 @@ def go(ingredients, f, to, diet, health, meal_type):
         to=to,
         diet=diet,
         health=health,
-        mealType=meal_type
+        mealType=meal_type,
+        calories=calories,
+        time=time
     )
     params["q"] = ingredients
     params["app_id"] = id

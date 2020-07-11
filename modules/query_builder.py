@@ -21,10 +21,16 @@ def build_query_params(**kwargs) -> Dict[str, str]:
             params[name] = value
         elif name == "dishType" and type(value) is str and value != "":
             params[name] = value
-        elif name == "calories" : #and type(value) is range(minCal, maxCal) and value >= 0
+        elif name == "calories" and type(value) is str and value !="" \
+        and (len(value.split("-"))==2 and value.split("-")[0].isdigit() \
+        and value.split("-")[1].isdigit() \
+        and int(value.split("-")[0])<int(value.split("-")[1])):
             params[name] = value
-        elif name == "time": # and type(value) is range(minTime, maxTime) and value >= 0
-            pass
+        elif name == "time" and type(value) is str and value !="" \
+        and (len(value.split("-"))==2 and value.split("-")[0].isdigit() \
+        and value.split("-")[1].isdigit() \
+        and int(value.split("-")[0])<int(value.split("-")[1])):
+            params[name] = value
         elif name == "excluded" and type(value) is str and value != "":
             pass
         elif name == "callback" and type(value) is str and value != "":
