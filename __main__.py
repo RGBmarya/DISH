@@ -12,8 +12,7 @@ API_URL = "https://api.edamam.com/search"
 
 @click.command()
 @click.option('--ingredients', '-i',
-              help='Ingredients you have available to create your dish',
-              required=False)
+              help='Ingredients you have available to create your dish')
 @click.option('-f', help='Begin listing recipes at this index', default=-1)
 @click.option('--to', '-t',
               help='Maximum number of recipes to display', default=-1)
