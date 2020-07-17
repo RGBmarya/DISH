@@ -28,6 +28,12 @@ def display_recipes(recipe: Dict[str, Union[str, List[Any], int]]) -> None:
     label = recipe["label"]
     image = recipe["image"]
     ingredients = recipe["ingredientLines"]
-    calories = recipe["calories"]
+    calories = int(recipe["calories"])
     time = recipe["totalTime"]
-    print(f'\nLabel: {label}\nImage: {image}\nIngredients: {ingredients}\nCalories: {calories}\nTotal Time: {time}')
+    if time == 0.0:
+         print(f'\nLabel: {label}\nImage: {image}\nIngredients: \
+             {ingredients}\nCalories: {calories}')
+    else:
+         print(f'\nLabel: {label}\nImage: {image}\nIngredients: \
+             {ingredients}\nCalories: {calories}\nTotal Time: \
+             {time}')
